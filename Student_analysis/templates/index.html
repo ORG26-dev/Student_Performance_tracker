@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Performance | Class Register</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>Student performance</h1>
+      <p class="summary" id="summaryLine" aria-live="polite">Loading the class register.</p>
+    </div>
+    <div class="actions">
+      <label class="search">
+        <span class="sr">Search students</span>
+        <input id="search" type="search" placeholder="Search by name or ID" autocomplete="off">
+      </label>
+      <button class="btn" id="exportBtn" type="button">Download report</button>
+      <button class="btn primary" id="addBtn" type="button">Add student</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel register" aria-labelledby="regTitle">
+      <div class="panel-head">
+        <h2 id="regTitle">Class register</h2>
+        <p class="hint">Sort with the column headings. Select a student for details.</p>
+      </div>
+      <div class="table-wrap">
+        <table id="regTable">
+          <thead id="regHead"></thead>
+          <tbody id="regBody"></tbody>
+        </table>
+      </div>
+      <div class="legend-row">
+        <span class="swatch low"></span> Below pass mark
+        <span class="swatch mid"></span> Passing
+        <span class="swatch high"></span> Highest marks
+      </div>
+    </section>
+
+    <aside class="panel insights" aria-label="Class insights">
+      <section class="block">
+        <h3>Subject averages</h3>
+        <div id="subjectBars"></div>
+        <p class="note" id="subjectNote"></p>
+      </section>
+      <section class="block">
+        <h3>Grade distribution</h3>
+        <div class="grades" id="gradeCols" role="img" aria-label="Number of students per grade"></div>
+      </section>
+      <section class="block">
+        <h3>Needs attention</h3>
+        <ul class="attention" id="attention"></ul>
+      </section>
+    </aside>
+  </main>
+
+  <section class="charts-wrap" aria-labelledby="chartsTitle">
+    <div class="panel">
+      <div class="panel-head">
+        <h2 id="chartsTitle">Charts</h2>
+        <p class="hint">Top students, how percentages are spread, and any student against the class average.</p>
+      </div>
+      <div class="charts-grid">
+        <section class="chart-block">
+          <h3>Top 5 students by percentage</h3>
+          <div id="topBars"></div>
+        </section>
+        <section class="chart-block">
+          <h3>Percentage distribution</h3>
+          <div class="grades hist" id="histCols" role="img" aria-label="Number of students in each 10 point percentage range"></div>
+          <p class="note">Each bar counts students in a 10 point range, starting at the number shown. The last bar includes 100.</p>
+        </section>
+        <section class="chart-block">
+          <h3>Student against class average</h3>
+          <label class="sr" for="compareSelect">Choose a student</label>
+          <select id="compareSelect"></select>
+          <div id="compareBars"></div>
+          <p class="key"><i></i> Class average</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- Student detail sheet -->
+  <dialog class="sheet" id="detail" aria-labelledby="detailName"></dialog>
+
+  <!-- Add / edit form -->
+  <dialog class="modal" id="formDialog" aria-labelledby="formTitle">
+    <form id="studentForm" novalidate>
+      <h2 id="formTitle">Add student</h2>
+      <div class="field-grid" id="formFields"></div>
+      <p class="form-error" id="formError" role="alert"></p>
+      <div class="modal-actions">
+        <button class="btn" type="button" id="formCancel">Cancel</button>
+        <button class="btn primary" type="submit" id="formSave">Add student</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Delete confirmation -->
+  <dialog class="modal small" id="confirmDialog" aria-labelledby="confirmTitle">
+    <h2 id="confirmTitle">Delete student?</h2>
+    <p id="confirmText"></p>
+    <div class="modal-actions">
+      <button class="btn" type="button" id="confirmCancel">Keep student</button>
+      <button class="btn danger-solid" type="button" id="confirmOk">Delete student</button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+STUDENT PERFORMANCE REPORT
+============================================================
+
+Total students    : 17
+Class average (%) : 69.44
+Pass percentage   : 82.4%
+
+RANK LIST
+------------------------------------------------------------
+ Rank  ID          Name  Total  Percentage Grade Result
+    1 104  Ananya Singh  472.0        94.4    A+   Pass
+    2 112     Priya Das  452.0        90.4    A+   Pass
+    3 108    Meera Nair  440.0        88.0     A   Pass
+    4 101  Aarav Sharma  438.0        87.6     A   Pass
+    5 114  Neha Chauhan  417.0        83.4     A   Pass
+    5 106   Isha Kapoor  417.0        83.4     A   Pass
+    7 102    Diya Verma  408.0        81.6     A   Pass
+    8 110   Saanvi Iyer  377.0        75.4     B   Pass
+    9 117        Ratish  346.0        69.2     C   Pass
+   10 107  Vivaan Joshi  344.0        68.8     C   Pass
+   11 111 Yash Malhotra  321.0        64.2     C   Pass
+   12 103   Rohan Gupta  311.0        62.2     C   Pass
+   13 113     Dev Patel  284.0        56.8     D   Pass
+   14 105   Kabir Mehta  260.0        52.0     D   Pass
+   15 116         arman  213.0        42.6     F   Fail
+   16 109   Arjun Reddy  209.0        41.8     F   Fail
+   17 115   Rahul Yadav  193.0        38.6     F   Fail
+
+SUBJECT STATISTICS
+------------------------------------------------------------
+  Subject  Average  Highest  Lowest       Topper  Pass %
+    Maths    65.94     95.0    28.0 Ananya Singh    88.2
+  Physics    68.29     97.0    35.0 Ananya Singh    94.1
+Chemistry    66.53     92.0     2.0 Ananya Singh    88.2
+  English    73.47     91.0    50.0  Isha Kapoor   100.0
+ Computer    72.94     98.0    39.0 Ananya Singh    94.1
